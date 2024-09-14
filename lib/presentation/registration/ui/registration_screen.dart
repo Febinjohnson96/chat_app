@@ -1,3 +1,4 @@
+import 'package:chat_app/widgets/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationScreen extends StatelessWidget {
@@ -5,6 +6,12 @@ class RegistrationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const AppScaffold(
+      child: Column(
+        children: [
+          Text("registration"),
+        ],
+      ),
+    );
   }
 }
