@@ -1,8 +1,11 @@
 import 'package:chat_app/core/config/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:chat_app/injector.dart' as injector;
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await injector.initInjector();
   runApp(const MyApp());
 }
 
