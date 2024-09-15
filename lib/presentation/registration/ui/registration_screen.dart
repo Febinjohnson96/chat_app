@@ -73,7 +73,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           const AppButton(
             buttonTitle: "Sign Up",
-          )
+          ),
+          SizedBox(
+            height: 10.h,
+          ),
+          Center(child: TextButton(onPressed: (){}, child: Text("Sign In", style: AppTypography.jakarta14w100.copyWith(color: Colors.blue),)))
         ],
       ),
     );
