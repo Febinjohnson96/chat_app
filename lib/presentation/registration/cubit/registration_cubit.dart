@@ -11,6 +11,11 @@ class RegistrationCubit extends Cubit<RegistrationState> {
 
   void onSignUp(AuthModel user) {
     AppLogger.debuglog(user.displayName.toString());
-    emit(RegistrationState(user: user));
+    if (user.password != user.confirmPassword) {
+      AppLogger.errorlog('Password does not match');
+    } else {
+      user.isAuthenticated = true;
+      emit(RegistrationState(user: user));
+    }
   }
 }

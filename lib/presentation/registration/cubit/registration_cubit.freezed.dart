@@ -16,43 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RegistrationState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(AuthModel? user) $default, {
-    required TResult Function() initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(AuthModel? user)? $default, {
-    TResult? Function()? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(AuthModel? user)? $default, {
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_RegistrationState value) $default, {
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_RegistrationState value)? $default, {
-    TResult? Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_RegistrationState value)? $default, {
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
+  bool? get passwordDoesntMatch => throw _privateConstructorUsedError;
+  AuthModel? get user => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $RegistrationStateCopyWith<RegistrationState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -61,6 +29,8 @@ abstract class $RegistrationStateCopyWith<$Res> {
   factory $RegistrationStateCopyWith(
           RegistrationState value, $Res Function(RegistrationState) then) =
       _$RegistrationStateCopyWithImpl<$Res, RegistrationState>;
+  @useResult
+  $Res call({bool? passwordDoesntMatch, AuthModel? user});
 }
 
 /// @nodoc
@@ -72,15 +42,35 @@ class _$RegistrationStateCopyWithImpl<$Res, $Val extends RegistrationState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? passwordDoesntMatch = freezed,
+    Object? user = freezed,
+  }) {
+    return _then(_value.copyWith(
+      passwordDoesntMatch: freezed == passwordDoesntMatch
+          ? _value.passwordDoesntMatch
+          : passwordDoesntMatch // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as AuthModel?,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$RegistrationStateImplCopyWith<$Res> {
+abstract class _$$RegistrationStateImplCopyWith<$Res>
+    implements $RegistrationStateCopyWith<$Res> {
   factory _$$RegistrationStateImplCopyWith(_$RegistrationStateImpl value,
           $Res Function(_$RegistrationStateImpl) then) =
       __$$RegistrationStateImplCopyWithImpl<$Res>;
+  @override
   @useResult
-  $Res call({AuthModel? user});
+  $Res call({bool? passwordDoesntMatch, AuthModel? user});
 }
 
 /// @nodoc
@@ -94,9 +84,14 @@ class __$$RegistrationStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? passwordDoesntMatch = freezed,
     Object? user = freezed,
   }) {
     return _then(_$RegistrationStateImpl(
+      passwordDoesntMatch: freezed == passwordDoesntMatch
+          ? _value.passwordDoesntMatch
+          : passwordDoesntMatch // ignore: cast_nullable_to_non_nullable
+              as bool?,
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -108,14 +103,16 @@ class __$$RegistrationStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RegistrationStateImpl implements _RegistrationState {
-  const _$RegistrationStateImpl({this.user});
+  const _$RegistrationStateImpl({this.passwordDoesntMatch, this.user});
 
+  @override
+  final bool? passwordDoesntMatch;
   @override
   final AuthModel? user;
 
   @override
   String toString() {
-    return 'RegistrationState(user: $user)';
+    return 'RegistrationState(passwordDoesntMatch: $passwordDoesntMatch, user: $user)';
   }
 
   @override
@@ -123,12 +120,13 @@ class _$RegistrationStateImpl implements _RegistrationState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RegistrationStateImpl &&
-            const DeepCollectionEquality().equals(other.user, user));
+            (identical(other.passwordDoesntMatch, passwordDoesntMatch) ||
+                other.passwordDoesntMatch == passwordDoesntMatch) &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(user));
+  int get hashCode => Object.hash(runtimeType, passwordDoesntMatch, user);
 
   @JsonKey(ignore: true)
   @override
@@ -136,178 +134,19 @@ class _$RegistrationStateImpl implements _RegistrationState {
   _$$RegistrationStateImplCopyWith<_$RegistrationStateImpl> get copyWith =>
       __$$RegistrationStateImplCopyWithImpl<_$RegistrationStateImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(AuthModel? user) $default, {
-    required TResult Function() initial,
-  }) {
-    return $default(user);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(AuthModel? user)? $default, {
-    TResult? Function()? initial,
-  }) {
-    return $default?.call(user);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(AuthModel? user)? $default, {
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(user);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_RegistrationState value) $default, {
-    required TResult Function(_Initial value) initial,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_RegistrationState value)? $default, {
-    TResult? Function(_Initial value)? initial,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_RegistrationState value)? $default, {
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class _RegistrationState implements RegistrationState {
-  const factory _RegistrationState({final AuthModel? user}) =
-      _$RegistrationStateImpl;
+  const factory _RegistrationState(
+      {final bool? passwordDoesntMatch,
+      final AuthModel? user}) = _$RegistrationStateImpl;
 
+  @override
+  bool? get passwordDoesntMatch;
+  @override
   AuthModel? get user;
+  @override
   @JsonKey(ignore: true)
   _$$RegistrationStateImplCopyWith<_$RegistrationStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$RegistrationStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$InitialImpl implements _Initial {
-  _$InitialImpl();
-
-  @override
-  String toString() {
-    return 'RegistrationState.initial()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(AuthModel? user) $default, {
-    required TResult Function() initial,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(AuthModel? user)? $default, {
-    TResult? Function()? initial,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(AuthModel? user)? $default, {
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_RegistrationState value) $default, {
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_RegistrationState value)? $default, {
-    TResult? Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_RegistrationState value)? $default, {
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements RegistrationState {
-  factory _Initial() = _$InitialImpl;
 }
