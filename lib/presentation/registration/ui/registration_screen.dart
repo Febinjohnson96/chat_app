@@ -107,7 +107,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             ),
             Center(
                 child: TextButton(
-                    onPressed: () {},
+                    onPressed: () => context.go(RouteName.login),
                     child: Text(
                       "Sign In",
                       style: AppTypography.jakarta14w100
