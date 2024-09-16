@@ -53,4 +53,14 @@ class SqfliteHelper {
       return AuthModel.fromJson(maps[i]);
     });
   }
+
+  Future<int> updateAuth(AuthModel auth) async {
+    final db = await database;
+    return await db.update(
+      'auth',
+      auth.toJson(),
+      where: 'id = ?',
+      whereArgs: [auth.id],
+    );
+  }
 }
