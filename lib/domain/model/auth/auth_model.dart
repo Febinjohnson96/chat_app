@@ -4,7 +4,7 @@ class AuthModel {
   String? phoneNumber;
   String? displayName;
   String? confirmPassword;
-  bool? isAuthenticated;
+  int? isAuthenticated;
 
   AuthModel(
       {this.email,
