@@ -4,8 +4,11 @@ part of 'login_cubit.dart';
 class LoginState with _$LoginState {
   const factory LoginState({
     AuthModel? user,
+    String? routeName,
   }) = _LoginState;
   factory LoginState.initial() {
-    return const LoginState();
+    return const LoginState(
+      routeName: '',
+    );
   }
 }

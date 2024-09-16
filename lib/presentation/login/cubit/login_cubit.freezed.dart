@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$LoginState {
   AuthModel? get user => throw _privateConstructorUsedError;
+  String? get routeName => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginStateCopyWith<LoginState> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $LoginStateCopyWith<$Res> {
           LoginState value, $Res Function(LoginState) then) =
       _$LoginStateCopyWithImpl<$Res, LoginState>;
   @useResult
-  $Res call({AuthModel? user});
+  $Res call({AuthModel? user, String? routeName});
 }
 
 /// @nodoc
@@ -46,12 +47,17 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   @override
   $Res call({
     Object? user = freezed,
+    Object? routeName = freezed,
   }) {
     return _then(_value.copyWith(
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as AuthModel?,
+      routeName: freezed == routeName
+          ? _value.routeName
+          : routeName // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -64,7 +70,7 @@ abstract class _$$LoginStateImplCopyWith<$Res>
       __$$LoginStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AuthModel? user});
+  $Res call({AuthModel? user, String? routeName});
 }
 
 /// @nodoc
@@ -79,12 +85,17 @@ class __$$LoginStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? user = freezed,
+    Object? routeName = freezed,
   }) {
     return _then(_$LoginStateImpl(
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as AuthModel?,
+      routeName: freezed == routeName
+          ? _value.routeName
+          : routeName // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -92,14 +103,16 @@ class __$$LoginStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoginStateImpl implements _LoginState {
-  const _$LoginStateImpl({this.user});
+  const _$LoginStateImpl({this.user, this.routeName});
 
   @override
   final AuthModel? user;
+  @override
+  final String? routeName;
 
   @override
   String toString() {
-    return 'LoginState(user: $user)';
+    return 'LoginState(user: $user, routeName: $routeName)';
   }
 
   @override
@@ -107,11 +120,13 @@ class _$LoginStateImpl implements _LoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoginStateImpl &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.routeName, routeName) ||
+                other.routeName == routeName));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode => Object.hash(runtimeType, user, routeName);
 
   @JsonKey(ignore: true)
   @override
@@ -121,10 +136,13 @@ class _$LoginStateImpl implements _LoginState {
 }
 
 abstract class _LoginState implements LoginState {
-  const factory _LoginState({final AuthModel? user}) = _$LoginStateImpl;
+  const factory _LoginState({final AuthModel? user, final String? routeName}) =
+      _$LoginStateImpl;
 
   @override
   AuthModel? get user;
+  @override
+  String? get routeName;
   @override
   @JsonKey(ignore: true)
   _$$LoginStateImplCopyWith<_$LoginStateImpl> get copyWith =>

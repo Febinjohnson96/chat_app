@@ -1,3 +1,4 @@
+import 'package:chat_app/injector.dart';
 import 'package:chat_app/presentation/login/cubit/login_cubit.dart';
 import 'package:chat_app/presentation/login/ui/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ class LoginScreenUI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LoginCubit>(
-        create: (context) => LoginCubit(), child: const LoginScreen());
+        create: (context) => LoginCubit(sqfliteHelper: injector())..onLoad(),
+        child: const LoginScreen());
   }
 }
