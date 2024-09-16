@@ -46,6 +46,7 @@ dependencies:
   get_it: ^7.7.0
   sqflite: ^2.3.3+1
   intl_phone_field: ^3.2.0
+  path: ^1.9.0
 
 dev_dependencies:
   flutter_test:
