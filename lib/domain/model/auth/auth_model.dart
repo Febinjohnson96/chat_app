@@ -1,4 +1,5 @@
 class AuthModel {
+  int? id;
   String? email;
   String? password;
   String? phoneNumber;
@@ -7,7 +8,8 @@ class AuthModel {
   int? isAuthenticated;
 
   AuthModel(
-      {this.email,
+      {this.id,
+      this.email,
       this.password,
       this.phoneNumber,
       this.displayName,
@@ -15,6 +17,7 @@ class AuthModel {
       this.isAuthenticated});
 
   AuthModel.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     email = json['email'];
     password = json['password'];
     phoneNumber = json['phoneNumber'];
@@ -25,6 +28,7 @@ class AuthModel {
 
   Map<String, dynamic> toJson() {
     return {
+      'id': id,
       'email': email,
       'password': password,
       'phoneNumber': phoneNumber,

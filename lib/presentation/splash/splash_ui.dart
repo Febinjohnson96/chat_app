@@ -1,3 +1,4 @@
+import 'package:chat_app/injector.dart';
 import 'package:chat_app/presentation/splash/cubit/splash_cubit.dart';
 import 'package:chat_app/presentation/splash/ui/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ class SplashUi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<SplashCubit>(
-      create: (context) => SplashCubit()..onLoad(),
+      create: (context) => SplashCubit(sqfliteHelper: injector())..onLoad(),
       child: const SplashScreen(),
     );
   }

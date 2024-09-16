@@ -1,4 +1,3 @@
-import 'package:chat_app/core/config/route_name.dart';
 import 'package:chat_app/presentation/splash/cubit/splash_cubit.dart';
 import 'package:chat_app/widgets/app_scaffold.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +13,7 @@ class SplashScreen extends StatelessWidget {
       child: BlocListener<SplashCubit, SplashState>(
         listener: (context, state) {
           if (state.routeName != null) {
-            context.go(RouteName.registration);
+            context.go(state.routeName ?? '');
           }
         },
         child: const Center(
